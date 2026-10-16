@@ -1,19 +1,56 @@
 # RecipeBook
 
-A React + TypeScript app built with [Vite](https://vite.dev/), styled with Bootstrap 3.
+A recipe book and shopping list app built with React and TypeScript, styled with Bootstrap 3.
+
+## Tech stack
+
+- [React 19](https://react.dev/) + TypeScript
+- [Vite](https://vite.dev/) for the dev server and production build
+- [Bootstrap 3](https://getbootstrap.com/docs/3.4/) (CSS only)
+- [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit tests
 
 ## Getting started
 
-Run `npm install` to install dependencies.
+Requires Node.js 22.12 or later.
 
-## Development server
+```sh
+npm install
+npm run dev
+```
 
-Run `npm run dev` for a dev server. Navigate to `http://localhost:5173/`. The app will automatically reload if you change any of the source files.
+Then open `http://localhost:5173/`. The app reloads automatically when you change a source file.
 
-## Build
+## Scripts
 
-Run `npm run build` to type-check and build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run preview` to serve the production build locally.
+| Command              | Description                                          |
+| -------------------- | ---------------------------------------------------- |
+| `npm run dev`        | Start the dev server                                 |
+| `npm run build`      | Type-check and build for production into `dist/`     |
+| `npm run preview`    | Serve the production build locally                   |
+| `npm test`           | Run the unit tests once                              |
+| `npm run test:watch` | Run the unit tests in watch mode                     |
 
-## Running unit tests
+## Project structure
 
-Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). Use `npm run test:watch` to re-run tests on change.
+```
+src/
+├── main.tsx                  # Entry point; loads Bootstrap and global styles
+├── App.tsx                   # Page layout
+├── models/                   # Recipe and Ingredient types
+└── components/
+    ├── Header/               # Navbar with collapsible mobile menu
+    ├── recipes/
+    │   ├── Recipes.tsx       # Recipe list + detail layout
+    │   ├── RecipeList/
+    │   ├── RecipeItem/
+    │   └── RecipeDetail/
+    └── shopping-list/
+        ├── ShoppingList.tsx
+        └── ShoppingEdit/
+```
+
+Each component's tests live next to it as `*.test.tsx`.
+
+## Status
+
+This app was migrated from Angular to React with the same behavior. Recipes and shopping list items are still hard-coded, and the nav links, dropdown menus and shopping list buttons are placeholders that don't do anything yet.

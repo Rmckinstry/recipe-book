@@ -1,27 +1,56 @@
 # RecipeBook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+A recipe book and shopping list app built with React and TypeScript, styled with Bootstrap 3.
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [React 19](https://react.dev/) + TypeScript
+- [Vite](https://vite.dev/) for the dev server and production build
+- [Bootstrap 3](https://getbootstrap.com/docs/3.4/) (CSS only)
+- [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit tests
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Requires Node.js 22.12 or later.
 
-## Build
+```sh
+npm install
+npm run dev
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Then open `http://localhost:5173/`. The app reloads automatically when you change a source file.
 
-## Running unit tests
+## Scripts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+| Command              | Description                                          |
+| -------------------- | ---------------------------------------------------- |
+| `npm run dev`        | Start the dev server                                 |
+| `npm run build`      | Type-check and build for production into `dist/`     |
+| `npm run preview`    | Serve the production build locally                   |
+| `npm test`           | Run the unit tests once                              |
+| `npm run test:watch` | Run the unit tests in watch mode                     |
 
-## Running end-to-end tests
+## Project structure
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+src/
+├── main.tsx                  # Entry point; loads Bootstrap and global styles
+├── App.tsx                   # Page layout
+├── models/                   # Recipe and Ingredient types
+└── components/
+    ├── Header/               # Navbar with collapsible mobile menu
+    ├── recipes/
+    │   ├── Recipes.tsx       # Recipe list + detail layout
+    │   ├── RecipeList/
+    │   ├── RecipeItem/
+    │   └── RecipeDetail/
+    └── shopping-list/
+        ├── ShoppingList.tsx
+        └── ShoppingEdit/
+```
 
-## Further help
+Each component's tests live next to it as `*.test.tsx`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Status
+
+This app was migrated from Angular to React with the same behavior. Recipes and shopping list items are still hard-coded, and the nav links, dropdown menus and shopping list buttons are placeholders that don't do anything yet.
